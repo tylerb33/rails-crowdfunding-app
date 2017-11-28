@@ -43,6 +43,8 @@ class PaymentTypesController < ApplicationController
         redirect_to payment_types_path
 	end
 
+	
+
 
 	private
 
