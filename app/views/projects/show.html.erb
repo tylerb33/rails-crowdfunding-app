@@ -4,4 +4,21 @@
 Start Date: <%= @project.start_date %> <br>
 End Date: <%= @project.end_date %><br>
 
-<%= link_to "Add contributions for those that donate.", new_project_contribution_path(@project) %>
+<h3>Gifts for supporting this project:</h3>
+
+<% @gifts = Gift.all %>
+<% @gifts.each do |gift| %>
+
+	<h5><%= gift.title %></h5>
+	<h5>Description: <%= gift.description %></h5>
+	<h5>Minimum Donation: <%= number_to_currency(gift.minimum_donation) %></h5>
+	<br>
+
+<% end %>
+
+<br>
+<br>
+<br>
+
+<p><%= link_to "Add gifts for those that donate.", new_project_gift_path(@project), class: "btn btn-primary" %></p>
+

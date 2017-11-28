@@ -1,0 +1,21 @@
+<h1>Account Details</h1>
+
+<% @users.each do |user| %>
+	<h3> <%= user.first_name %> <%= user.last_name %> </h3>
+	<h3> <%= user.email %> </h3>
+	<h3> <%= user.street_address %> </h3>
+	<h3> <%= user.city %>, <%= user.state %> <%= user.postal_code %> </h3>
+<% end %>
+
+<h3>Payment Types</h3>
+<h4><%= link_to "Add Payment Type", new_payment_type_path, class: "btn btn-primary" %></h4>
+<% @payment_types.each do |payment| %>
+	<h4> <%= payment.title %> </h4>
+	<h4> <%= payment.account_number %></h4>
+	<div><%= link_to 'Edit', edit_payment_type_path(payment) %></div>
+	<div><%= link_to 'Delete', payment_type_path(payment),
+                                        method: :delete,
+                                        data: {confirm: 'Are you sure?'} %>
+    </div>
+<% end %>
+

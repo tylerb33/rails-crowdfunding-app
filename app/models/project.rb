@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
 	belongs_to :user
 	has_many :contributions
+	has_many :gifts
 	has_many :project_project_types
 	has_many :project_categories, through: :project_project_types
 

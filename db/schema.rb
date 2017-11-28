@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127213534) do
+ActiveRecord::Schema.define(version: 20171128192604) do
 
   create_table "contributions", force: :cascade do |t|
     t.float "donation_amount"
@@ -26,10 +26,11 @@ ActiveRecord::Schema.define(version: 20171127213534) do
   create_table "gifts", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "user_id"
+    t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_gifts_on_user_id"
+    t.float "minimum_donation"
+    t.index ["project_id"], name: "index_gifts_on_project_id"
   end
 
   create_table "payment_types", force: :cascade do |t|

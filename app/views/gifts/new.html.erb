@@ -1,0 +1,45 @@
+<h1>Add Gift to Project</h1>
+
+<div class="container">
+		<div class="form-group">
+			<%= form_with(model: [@project, @project.gifts.build], local: true) do |f| %>
+
+				<% if @gift.errors.any? %>
+				    <div id="error_explanation">
+				      <h2>
+				        <%= pluralize(@gift.errors.count, "error") %> prohibited
+				        this gift from being saved:
+				      </h2>
+				      <ul>
+				        <% @gift.errors.full_messages.each do |msg| %>
+				          <li>
+				          	 <div class="alert alert-danger"><%= msg %></div>
+				          </li>
+				        <% end %>
+				      </ul>
+				    </div>
+				<% end %>
+
+				<p>
+					<%= f.label :title %><br>
+					<%= f.text_field(:title, {:class => 'form-control'}) %>
+				</p>
+
+				<p>
+					<%= f.label :description %><br>
+					<%= f.text_area(:description, {:class => 'form-control'}) %>
+				</p>
+
+				<p>
+					<%= f.label :minimum_donation %><br>
+					<%= f.text_field(:minimum_donation, {:class => 'form-control'}) %>
+				</p>
+
+				<p>
+					<%= f.submit "Add Gift" %>
+				</p>
+
+			<% end %>
+
+		</div>
+</div>
