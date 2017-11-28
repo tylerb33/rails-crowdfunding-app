@@ -12,14 +12,14 @@
 			<% now = Date.today %>
 			<% if project.start_date < now %>
 				<% if project.end_date > now %>
-					<h4 class="active-project">This project is active now!</h4>
+					<h6 class="active-project">This project is active now!</h6>
 					<h4><%= link_to "Contribute", project_path(project), class: "btn btn-primary" %></h4>
 				<% else %>
-					<h4 class="past-project">This project ended on <%= project.end_date %>. </h4>
-					<h4><%= link_to "Contribute", project_path(project), class: "btn btn-primary disabled" %></h4>
+					<h6 class="past-project">This project ended on <%= project.end_date %>. </h6>
+					<h4><%= link_to "Contribute", project_path(project), class: "btn btn-primary disabled" %></h6>
 				<% end %>
 			<% else %>
-					<h4 class="future-project">This project will be active on <%= project.start_date %>. </h4>
+					<h6 class="future-project">This project will be active on <%= project.start_date %>. </h6>
 					<h4><%= link_to "Contribute", project_path(project), class: "btn btn-primary disabled" %></h4>
 			<% end %>
 	

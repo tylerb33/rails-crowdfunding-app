@@ -1,0 +1,22 @@
+<h1>All Payment Types</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Account Number</th>
+  </tr>
+ 
+  <% @payment_types.each do |payment| %>
+    <tr>
+      <td><%= payment.title %></td>
+      <td><%= payment.account_number %></td>
+      <td><%= link_to 'Edit', edit_payment_type_path(payment) %></td>
+      <td><%= link_to 'Destroy', payment,
+              :method =>'delete',
+              :data => { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+<%= link_to 'New Payment Type', new_payment_type_path, class: "btn btn-primary" %>
