@@ -8,6 +8,23 @@ class PaymentTypesController < ApplicationController
 		@payment_type = PaymentType.new
 	end
 
+	def edit
+		@payment_type = PaymentType.find(params[:id])
+	end
+
+	def update
+		@payment_type = PaymentType.find(params[:id])
+		if @payment_type.update(payment_params)
+			redirect_to users_path
+		else 
+			render 'edit'
+		end
+	end
+
+	def show
+		@payment_type = PaymentType.where(:user_id => session[:user_id])
+	end
+
 	def create
 		@payment_type = PaymentType.new(payment_params)
 		@payment_type.user_id = session[:user_id]
@@ -18,6 +35,12 @@ class PaymentTypesController < ApplicationController
 			render 'new'
 		end
 
+	end
+
+	def destroy
+		@payment_type = PaymentType.find(params[:id])
+        @payment_type.destroy
+        redirect_to payment_types_path
 	end
 
 

@@ -13,9 +13,10 @@
 	<h4> <%= payment.title %> </h4>
 	<h4> <%= payment.account_number %></h4>
 	<div><%= link_to 'Edit', edit_payment_type_path(payment) %></div>
-	<div><%= link_to 'Delete', payment_type_path(payment),
+	<div><%= link_to 'Delete', payment,
                                         method: :delete,
                                         data: {confirm: 'Are you sure?'} %>
+
     </div>
 <% end %>
 
