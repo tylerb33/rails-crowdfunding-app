@@ -1,4 +1,3 @@
 class Gift < ApplicationRecord
-	belongs_to :user
-	belongs_to :contribution
+	belongs_to :project
 end

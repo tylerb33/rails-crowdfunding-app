@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 	resources :project_categories
 	
 	resources :projects do
-	  resources :contributions
+	  resources :gifts
 	end
 
 	resources :user_projects
