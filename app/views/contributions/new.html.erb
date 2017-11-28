@@ -1,0 +1,40 @@
+<h1>Add A Contribution</h1>
+
+<div class="container">
+		<div class="form-group">
+			<%= form_with(model: [@project, @project.contributions.build]) do |f| %>
+
+				<% if @contribution.errors.any? %>
+				    <div id="error_explanation">
+				      <h2>
+				        <%= pluralize(@contribution.errors.count, "error") %> prohibited
+				        this contribution from being saved:
+				      </h2>
+				      <ul>
+				        <% @contribution.errors.full_messages.each do |msg| %>
+				          <li>
+				          	 <div class="alert alert-danger"><%= msg %></div>
+				          </li>
+				        <% end %>
+				      </ul>
+				    </div>
+				<% end %>
+
+				<p>
+					<%= f.label :donation_amount %><br>
+					<%= f.text_field(:donation_amount, {:class => 'form-control'}) %>
+				</p>
+
+				<p>
+					<%= f.label :amount_remaining %><br>
+					<%= f.text_area(:amount_remaining, {:class => 'form-control'}) %>
+				</p>
+
+				<p>
+					<%= f.submit "Add Gift to Project" %>
+				</p>
+
+			<% end %>
+
+		</div>
+</div>

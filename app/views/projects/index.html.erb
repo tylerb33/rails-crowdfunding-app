@@ -1,0 +1,28 @@
+<h1>All Projects</h1>
+
+<div class="row">
+	<% @projects.each do |project| %>
+		<div class="col-md-4">
+			<h1><%= link_to project.title, project_path(project) %></h1>
+			<h3><%= project.description %></h3>
+			<h3>Funding Goal: <%= number_to_currency(project.funding_goal) %></h3>
+			Start Date: <%= project.start_date %> <br>
+			End Date: <%= project.end_date %>
+			
+			<% now = Date.today %>
+			<% if project.start_date < now %>
+				<% if project.end_date > now %>
+					<h4 class="active-project">This project is active now!</h4>
+					<h4><%= link_to "Contribute", project_path(project), class: "btn btn-primary" %></h4>
+				<% else %>
+					<h4 class="past-project">This project ended on <%= project.end_date %>. </h4>
+					<h4><%= link_to "Contribute", project_path(project), class: "btn btn-primary disabled" %></h4>
+				<% end %>
+			<% else %>
+					<h4 class="future-project">This project will be active on <%= project.start_date %>. </h4>
+					<h4><%= link_to "Contribute", project_path(project), class: "btn btn-primary disabled" %></h4>
+			<% end %>
+	
+		</div>
+	<% end %>
+</div>

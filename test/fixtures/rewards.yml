@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  donation_amount: 1.5
+  amount_remaining: 1
+  gift_id: 1
+
+two:
+  donation_amount: 1.5
+  amount_remaining: 1
+  gift_id: 1
