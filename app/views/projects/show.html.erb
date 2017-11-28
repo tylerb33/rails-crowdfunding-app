@@ -1,0 +1,7 @@
+<h1><%= @project.title %></h1>
+<h3><%= @project.description %></h3>
+<h3>Funding Goal: <%= number_to_currency(@project.funding_goal) %></h3>
+Start Date: <%= @project.start_date %> <br>
+End Date: <%= @project.end_date %><br>
+
+<%= link_to "Add contributions for those that donate.", new_project_contribution_path(@project) %>
