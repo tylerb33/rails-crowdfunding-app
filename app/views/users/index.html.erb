@@ -19,3 +19,18 @@
               :data => { confirm: 'Are you sure?' } %></div>
 <% end %>
 
+<h3>Your Created Projects</h3>
+<% @user_projects = Project.where(:user_id => session[:user_id]).order(:created_at)%>
+<% now = Date.today %>
+<% @user_projects.each do |project| %>
+	<div><%= link_to project.title, project %> | <%= project.created_at.strftime("Created on %m/%d/%Y") %> |
+		<% if project.start_date > now %>
+			<%= link_to 'Edit', edit_project_path(project) %> |
+			<%= link_to 'Delete', project,
+				:method => 'delete',
+				:data => { confirm: 'Are you sure?' } %>
+		<% elsif project.start_date < now and project.end_date > now %>
+			<%= link_to 'Edit', edit_project_path(project) %>
+		<% end %>
+	</div>
+<% end %>
