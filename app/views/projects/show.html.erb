@@ -6,7 +6,7 @@ End Date: <%= @project.end_date %><br>
 
 <h3>Gifts for supporting this project:</h3>
 
-<% @gifts = Gift.all %>
+<% @gifts = Gift.where("project_id == #{@project.id}") %>
 <% @gifts.each do |gift| %>
 
 	<h5><%= gift.title %></h5>
